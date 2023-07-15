@@ -3,7 +3,9 @@ const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const { validateEmail } = require('../middlewares/dataValidation');
 
-const userSchema = new mongoose.Schema(
+const { Schema } = mongoose;
+
+const userSchema = new Schema(
   {
     name: {
       type: String,
