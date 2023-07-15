@@ -102,10 +102,10 @@ const updateUserInfo = (req, res, next) => {
       res.send(user);
     })
     .catch((err) => {
-      if (err.name === "ValidationError") {
-        return next(new BadRequest("Переданы некорректные данные"));
-      } else if (err.code === 11000) {
-        return next(new Conflict("Такой пользаватель уже существует"));
+      if (err instanceof mongoose.Error.ValidationError) {
+        return next(new BadRequestError('Данные некорректны'));
+      } else if (err.name === 'MongoServerError' || err.code === 11000) {
+        return next(new ConflictError('Пользователь уже зарегистрирован'));
       }
       return next(err);
     });
