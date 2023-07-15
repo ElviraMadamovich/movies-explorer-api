@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const helmet = require('helmet');
 const connectionDB = require('./utils/connectionDB');
-const limiter = require('./utils/limiter');
+const { limiter } = require('./middlewares/limiter');
 const cors = require('./middlewares/cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const errorHandler = require('./middlewares/errorHandler');
