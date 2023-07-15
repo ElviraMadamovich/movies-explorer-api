@@ -1,6 +1,11 @@
 const { celebrate, Joi } = require("celebrate");
 const validator = require("validator");
 
+const urlValidationHandler = (value, helpers) => {
+  if (validator.isURL(value)) return value;
+  return helpers.message("Некорректный формат ссылки");
+};
+
 const validateAuthorization = celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
@@ -44,11 +49,6 @@ const validateDeleteMovie = celebrate({
     movieId: Joi.string().required().length(24).hex(),
   }),
 });
-
-const urlValidationHandler = (value, helpers) => {
-  if (validator.isURL(value)) return value;
-  return helpers.message("Некорректный формат ссылки");
-};
 
 module.exports = {
   validateRegistration,
