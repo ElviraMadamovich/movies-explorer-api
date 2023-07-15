@@ -2,11 +2,7 @@ const routes = require('express').Router();
 const { errors } = require('celebrate');
 
 const users = require('./users');
-<<<<<<< Updated upstream
-const cards = require('./movies');
-=======
 const movies = require('./movies');
->>>>>>> Stashed changes
 const auth = require('../middlewares/auth');
 const {
   authorize,

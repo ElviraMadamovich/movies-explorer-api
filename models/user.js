@@ -7,39 +7,26 @@ const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-<<<<<<< Updated upstream
-      minlength: 2,
-      maxlength: 30,
-      required: true,
-=======
       required: true,
       minlength: 2,
       maxlength: 30,
->>>>>>> Stashed changes
     },
     email: {
       type: String,
       required: true,
       unique: true,
-<<<<<<< Updated upstream
-      validator: validateEmail,
-=======
       validate: {
         validator: (v) => validator.isEmail(v),
-        message: 'Введите корректный email',
+        message: 'Введите email',
       },
->>>>>>> Stashed changes
     },
     password: {
       type: String,
-      required: true,
       select: false,
-<<<<<<< Updated upstream
-=======
       required: true,
->>>>>>> Stashed changes
     },
-  }, { versionKey: false },
+  },
+  { versionKey: false },
 );
 
 userSchema.statics.findUserByCredentials = function findUser(email, password) {

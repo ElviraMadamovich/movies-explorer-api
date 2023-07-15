@@ -1,14 +1,7 @@
 const mongoose = require('mongoose');
-<<<<<<< Updated upstream
-
-const { Schema } = mongoose;
-
-const movieSchema = new Schema(
-=======
 const validator = require('validator');
 
 const movieSchema = new mongoose.Schema(
->>>>>>> Stashed changes
   {
     country: {
       type: String,
@@ -33,41 +26,30 @@ const movieSchema = new mongoose.Schema(
     image: {
       type: String,
       required: true,
-<<<<<<< Updated upstream
-=======
       validate: {
         validator: (v) => validator.isURL(v),
         message: 'Введите URL',
       },
->>>>>>> Stashed changes
     },
     trailerLink: {
       type: String,
       required: true,
-<<<<<<< Updated upstream
-=======
       validate: {
         validator: (v) => validator.isURL(v),
         message: 'Введите URL',
       },
->>>>>>> Stashed changes
     },
     thumbnail: {
       type: String,
       required: true,
-<<<<<<< Updated upstream
-    },
-    owner: {
-      type: mongoose.Types.ObjectId,
-=======
       validate: {
         validator: (v) => validator.isURL(v),
         message: 'Введите URL',
       },
     },
+
     owner: {
       type: mongoose.Schema.Types.ObjectId,
->>>>>>> Stashed changes
       ref: 'user',
       required: true,
     },
@@ -83,12 +65,8 @@ const movieSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-<<<<<<< Updated upstream
-  }, { versionKey: false }
-=======
   },
-  { versionKey: false }
->>>>>>> Stashed changes
+  { versionKey: false },
 );
 
 module.exports = mongoose.model('movie', movieSchema);
