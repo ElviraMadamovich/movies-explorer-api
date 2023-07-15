@@ -69,7 +69,7 @@ const authorize = (req, res, next) => {
 };
 
 const getUserById = (req, res, next) => {
-  usersModel
+  userSample
     .findById(req.user._id)
     .orFail()
     .then((user) => {
@@ -86,7 +86,7 @@ const getUserById = (req, res, next) => {
 const updateUserInfo = (req, res, next) => {
   const { name, email } = req.body;
 
-  usersModel
+  userSample
     .findByIdAndUpdate(
       req.user._id,
       { name, email },
@@ -96,7 +96,7 @@ const updateUserInfo = (req, res, next) => {
       }
     )
     .orFail(() => {
-      throw new NotFound("Пользователь с указанным _id не найден");
+      throw new NotFoundError('Пользователь не найден');
     })
     .then((user) => {
       res.send(user);
@@ -104,7 +104,8 @@ const updateUserInfo = (req, res, next) => {
     .catch((err) => {
       if (err instanceof mongoose.Error.ValidationError) {
         return next(new BadRequestError('Данные некорректны'));
-      } else if (err.name === 'MongoServerError' || err.code === 11000) {
+      }
+      if (err.name === 'MongoServerError' || err.code === 11000) {
         return next(new ConflictError('Пользователь уже зарегистрирован'));
       }
       return next(err);

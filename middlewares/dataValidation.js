@@ -1,9 +1,9 @@
-const { celebrate, Joi } = require("celebrate");
-const validator = require("validator");
+const { celebrate, Joi } = require('celebrate');
+const validator = require('validator');
 
 const urlValidationHandler = (value, helpers) => {
   if (validator.isURL(value)) return value;
-  return helpers.message("Некорректный формат ссылки");
+  return helpers.message('Некорректный формат ссылки');
 };
 
 const validateAuthorization = celebrate({

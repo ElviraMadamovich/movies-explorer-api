@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
-const { validateEmail } = require('../middlewares/dataValidation');
 
 const { Schema } = mongoose;
 

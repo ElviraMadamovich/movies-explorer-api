@@ -2,15 +2,25 @@
   "env": {
     "es2021": true
   },
-  "overrides": [
-  ],
+  "overrides": [],
   "parserOptions": {
     "ecmaVersion": "latest"
   },
-  "extends": "airbnb-base",
+  "extends": [
+    "airbnb-base",
+    "prettier"
+  ],
   "rules": {
     "no-console": "off",
-    "no-underscore-dangle": ["error", { "allow": ["_id"] }],
-    "comma-dangle": "off"
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": [
+          "_id"
+        ]
+      }
+    ],
+    "comma-dangle": "off",
+    "linebreak-style": "off",
   }
 }

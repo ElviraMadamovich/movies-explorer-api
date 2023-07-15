@@ -61,7 +61,7 @@ const deleteMovie = (req, res, next) => {
     .findById(req.params.movieId)
     .orFail()
     .then((movie) => {
-      movieModel
+      movieSample
         .deleteOne({ _id: movie._id, owner: req.user._id })
         .then((result) => {
           if (result.deletedCount === 0) {
