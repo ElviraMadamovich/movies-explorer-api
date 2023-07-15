@@ -19,6 +19,8 @@
 /movies/_id
 
 Адрес репозитория: https://github.com/ElviraMadamovich/movies-explorer-api.git
+
 IP 51.250.80.178
-Домен: elviram.movies-explorer.nomoredomains.work
-Backend: api.elviram.movies.nomoredomains.work
+
+Фронтенд: https://elviram.movies-explorer.nomoredomains.work
+Backend: https://api.elviram.movies.nomoredomains.work
