@@ -1,6 +1,8 @@
 const allowedCors = [
   'http://elviram.movies-explorer.nomoredomains.work',
   'https://elviram.movies-explorer.nomoredomains.work',
+  'http://api.elviram.movies.nomoredomains.work',
+  'https://api.elviram.movies.nomoredomains.work',
   'http://localhost:3000',
   'https://localhost:3000',
 ];
