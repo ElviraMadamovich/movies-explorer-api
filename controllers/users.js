@@ -9,7 +9,6 @@ const NotFoundError = require('../utils/errors/NotFoundError');
 const ConflictError = require('../utils/errors/ConflictError');
 const UnauthorizedError = require('../utils/errors/UnauthorizedError');
 const { HTTP_STATUS_CREATED } = require('../utils/constants');
-const { SECRET_KEY } = require('../utils/constants');
 
 const register = (req, res, next) => {
   const {
@@ -54,7 +53,7 @@ const authorize = (req, res, next) => {
     .then((user) => {
       const token = jwt.sign(
         { _id: user._id },
-        NODE_ENV === 'production' ? JWT_SECRET : SECRET_KEY,
+        NODE_ENV === "production" ? JWT_SECRET : "secret-key",
         {
           expiresIn: '7d',
         },
